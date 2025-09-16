@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nosotros - MiSitio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+  <div class="container py-5">
+    <h1 class="l8">Sobre nosotros</h1>
+    <p class="l9">En ZPORT nacimos con una idea clara: darle a cada futbolista el calzado que realmente necesita para brillar en la cancha. Lo que comenzó como un sueño entre amantes del fútbol y la innovación, se convirtió en una empresa dedicada a crear guayos que combinan tecnología, diseño y pasión por el deporte.
+
+A lo largo del tiempo hemos trabajado de la mano con jugadores aficionados y profesionales para entender sus necesidades reales: comodidad, ligereza, resistencia y estilo. Gracias a esa cercanía con quienes aman el balón, desarrollamos productos que no solo destacan por su calidad, sino porque reflejan la esencia del fútbol: esfuerzo, disciplina y emoción.</p>
+    <h3 class="l8">Objetivo</h3>
+    <p class="l9">Nuestro objetivo es brindar guayos de alta calidad, diseñados con la más avanzada tecnología y materiales de primera, que garantizan comodidad, durabilidad y un excelente rendimiento en cualquier terreno de juego.
+
+En ZPORT creemos que cada jugador merece un calzado que se ajuste a su estilo, potencia sus habilidades y le dé la confianza necesaria para alcanzar sus metas deportivas. Por eso, ofrecemos modelos innovadores, con diseños modernos y adaptados a todas las edades y niveles de competencia, desde principiantes hasta profesionales.
+
+Más que vender guayos, queremos ser parte del camino de cada futbolista, acompañándolo en cada entrenamiento, partido y victoria. Con nosotros, no solo llevas un par de guayos: llevas la pasión, el esfuerzo y la energía de una marca que vive el fútbol igual que tú.</p>
+
+<h3 class="l8">contactanos</h3>
+    <p class="l9">GMAIL: zporttiendadeportiva@gmail.com</p>
+    <p class="l9">NUMER0: 326 4567890</p>
+
+
+  </div>
+
+   <div class="pt-1 mb-4">
+      <li class="nav-item2"><a class="nav-link" href="proyecto.html">Volver</a></li>
+                    
+     </div>
+
+  <div style="text-align: center;">
+      <img class="f2" src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-f82c-622f-9af6-cff97faa347b/raw?se=2025-09-16T02%3A16%3A24Z&sp=r&sv=2024-08-04&sr=b&scid=60dc0744-7407-5489-8682-68dde3c4c9dc&skoid=bbd22fc4-f881-4ea4-b2f3-c12033cf6a8b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-15T22%3A13%3A05Z&ske=2025-09-16T22%3A13%3A05Z&sks=b&skv=2024-08-04&sig=hhj%2BK14hrZVIYkAlJkvpZHaYZ6JWK4EDNlnSK0Rf3gY%3D" alt="">
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    
+    let dots = [];
+    for (let i = 0; i < 50; i++) { 
+      dots.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 12 + 6, 
+        dx: (Math.random() - 0.5) * 0.6, 
+        dy: (Math.random() - 0.5) * 0.6  
+      });
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+      dots.forEach(dot => {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(200,200,200,0.6)"; 
+        ctx.fill();
+    
+        dot.x += dot.dx;
+        dot.y += dot.dy;
+    
+        if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+        if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+      });
+    
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    </script>
+</body>
+</html>
